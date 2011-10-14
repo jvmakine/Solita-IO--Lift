@@ -47,8 +47,10 @@ class Boot {
     LiftRules.htmlProperties.default.set((r: Req) => new Html5Properties(r.userAgent)) 
     
     def sitemap(): SiteMap = SiteMap(
-        Menu.i("Home") / "index", 
-        Menu.i("About") / "about"
+        Menu.i("Etusivu") / "index", 
+        Menu.i("Henkilöt") / "persons",
+        Menu.i("Uusi henkilö") / "newperson",
+        Menu.i("Info") / "about"
     )    
     
   }

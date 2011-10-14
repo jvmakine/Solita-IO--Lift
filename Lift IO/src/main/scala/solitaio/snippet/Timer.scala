@@ -9,5 +9,4 @@ object Timer {
 	def render = 
 		"#current_date" #> (new SimpleDateFormat("dd.MM.yyyy")).format(new Date) &
 		"#current_time" #> (new SimpleDateFormat("hh:mm")).format(new Date)
-		
 }
