@@ -9,7 +9,8 @@ import http._
 import mapper._
 
 import net.liftweb.sitemap._
-
+import solitaio.model._
+import solitaio.snippet._
 
 /**
  * A class that's instantiated early and run.  It allows the application
@@ -26,6 +27,8 @@ class Boot {
     LiftRules.unloadHooks.append(vendor.closeAllConnections_! _)
 
     DB.defineConnectionManager(DefaultConnectionIdentifier, vendor)
+    
+    Schemifier.schemify(true, Schemifier.infoF _, Person)
     
     // where to search snippet
     LiftRules.addToPackages("solitaio")
