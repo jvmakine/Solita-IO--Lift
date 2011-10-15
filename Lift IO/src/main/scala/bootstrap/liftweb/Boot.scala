@@ -48,9 +48,9 @@ class Boot {
     
     def sitemap(): SiteMap = SiteMap(
         Menu.i("Etusivu") / "index", 
-        Menu.i("Henkilöt") / "persons",
-        Menu.i("Uusi henkilö") / "newperson",
-        Menu.i("Info") / "about"
+        Menu.i("Henkilöt") / "persons" submenus (
+        	Menu.i("Uusi henkilö") / "newperson" 
+        )
     )    
     
   }
