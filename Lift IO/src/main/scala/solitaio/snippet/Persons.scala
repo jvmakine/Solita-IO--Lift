@@ -7,6 +7,6 @@ import solitaio.model._
 
 class Persons {
 	def render = 
-	  "td *" #> Person.findAll.map(person => person.firstName + " " + person.lastName)
+	  "table *" #> Person.findAll.map(person => <tr><td>{person.firstName}</td><td>{person.lastName}</td></tr>)
 	  
 }
