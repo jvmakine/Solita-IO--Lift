@@ -9,7 +9,7 @@ import scala.xml._
 class Persons {
 	def render =
 	  "#persontable *" #> Person.findAll.map(person => {
-		  val link = <a>Tiedot</a> % Attribute(None, "href", Text("personshow/" + person.id), Null)
+		  val link = <a>Tiedot</a> % Attribute(None, "href", Text("/person/show/" + person.id), Null)
 		    <tr><td>{person.firstName}</td>
 	  		<td>{person.lastName}</td>
 	  		<td>{link}</td></tr>
