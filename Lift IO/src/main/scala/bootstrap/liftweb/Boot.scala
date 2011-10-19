@@ -8,7 +8,8 @@ import common._
 import http._
 import mapper._
 
-import net.liftweb.sitemap._
+import sitemap._
+import Loc._
 import solitaio.model._
 import solitaio.snippet._
 
@@ -39,19 +40,19 @@ class Boot {
     // Force the request to be UTF-8
     LiftRules.early.append(_.setCharacterEncoding("UTF-8"))
 
-    //LiftRules.dispatch.append(solitaio.Controller)
-    
     LiftRules.setSiteMapFunc(() => sitemap())
     
     // Use HTML5 for rendering
     LiftRules.htmlProperties.default.set((r: Req) => new Html5Properties(r.userAgent)) 
     
     def sitemap(): SiteMap = SiteMap(
-        Menu.i("Etusivu") / "index", 
-        Menu.i("Henkilöt") / "persons" submenus (
-        	Menu.i("Uusi henkilö") / "newperson" 
-        )
-    )    
+        Menu("Etusivu") / "index", 
+	    Menu("Henkilöt") / "personlist" submenus (
+	    	Menu("Uusi henkilö") / "personnew",
+	        Menu.param[Integer]("Henkilö", "id", 
+	            s => Full(Integer.parseInt(s)), i => i.toString) / "personshow" >> Hidden
+	    )
+	)   
     
   }
 }
