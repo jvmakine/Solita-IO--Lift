@@ -3,3 +3,5 @@
 /lift_proto.db.lock.db
 /.classpath
 /.project
+/solitaio.db.h2.db
+/solitaio.db.lock.db
