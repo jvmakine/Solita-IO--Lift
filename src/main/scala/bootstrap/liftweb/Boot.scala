@@ -29,7 +29,7 @@ class Boot {
 
     DB.defineConnectionManager(DefaultConnectionIdentifier, vendor)
     
-    Schemifier.schemify(true, Schemifier.infoF _, Person)
+    Schemifier.schemify(true, Schemifier.infoF _, Person, Event)
     
     // where to search snippet
     LiftRules.addToPackages("solitaio")
@@ -47,7 +47,9 @@ class Boot {
     
     def sitemap(): SiteMap = SiteMap(
         Menu("Etusivu") / "index", 
-		Menu("Solita IO sessiot") / "event" / "list",
+		Menu("Solita IOt") / "event" / "list" submenus ( 
+				Menu("Lisää tapahtuma") / "event" / "new"
+		),
 	    Menu("Henkilöt") / "person" / "list" submenus (
 	    	Menu("Uusi henkilö") / "person" / "new",
 	        Menu.param[Integer]("Henkilö", "id", s => Full(Integer.parseInt(s)), i => i.toString) 

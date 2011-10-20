@@ -24,7 +24,7 @@ class PersonForm extends StatefulSnippet {
 	private def process() = {
 	  	if (firstname.length == 0) S.error("firstname", "Etunimi puuttuu");
 		if (lastname.length == 0) S.error("lastname", "Sukunimi puuttuu");
-		if(S.errors == Nil) { save(); S.redirectTo(from_url); }
+		if (S.errors == Nil) { save(); S.redirectTo(from_url); }
 	}
 		
 	private def save() = {
