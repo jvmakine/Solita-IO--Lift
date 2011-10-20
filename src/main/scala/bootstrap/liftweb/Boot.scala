@@ -47,6 +47,7 @@ class Boot {
     
     def sitemap(): SiteMap = SiteMap(
         Menu("Etusivu") / "index", 
+		Menu("Solita IO sessiot") / "event" / "list",
 	    Menu("Henkilöt") / "person" / "list" submenus (
 	    	Menu("Uusi henkilö") / "person" / "new",
 	        Menu.param[Integer]("Henkilö", "id", s => Full(Integer.parseInt(s)), i => i.toString) 
