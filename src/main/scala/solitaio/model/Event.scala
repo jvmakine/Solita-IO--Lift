@@ -9,6 +9,7 @@ class Event extends LongKeyedMapper[Event] {
 	object id extends MappedLongIndex(this)
 	
 	object name extends MappedString(this, 20)
+	object organizer extends LongMappedMapper(this, Person)
 
 }
 

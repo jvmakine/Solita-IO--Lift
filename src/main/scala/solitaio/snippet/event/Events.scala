@@ -9,6 +9,15 @@ import scala.xml._
 object Events {
 	def render = 
 		"#events *" #> Event.findAll.map(event => {
-			<tr><td>{event.name}</td></tr>
+			val org =
+			if(event.organizer.isEmpty) {
+				var p = Person.create
+				p.firstName("NONE")
+				p.lastName("NONE")
+				p
+			} else {
+				Person.findByKey(event.organizer.get).get
+			}
+			<tr><td>{event.name}</td><td>{org.lastName}, {org.firstName}</td></tr>
 		})
 }
